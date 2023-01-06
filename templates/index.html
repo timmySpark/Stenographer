@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block page_content %} Stenograph {% endblock page_content %}  
+
+{% block content %}
+    
+    <div class="container">
+
+
+        <div class="custom-design ">
+
+            <div class="header">
+
+                <div class="row">
+
+                    <div class="col-12 col-lg-6 text-center">
+                        <img class="header-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80" alt="Img not Found">
+                    </div>
+
+                    <div class="col-12 col-lg-6 mt-3">
+                        <h1 class="about-app"> Write & view hidden text in your favourite images.</h1>
+
+                        <div class="py-3 mt-4 sten-box">
+                            <a href="{% url 'encode' %}" class="w-100 btn btn-danger rounded py-3"> Encode </a>
+                            <span class="my-2 mx-3 fw-bold">OR</span>
+                            <a href="{% url 'encode' %}" class="w-100 btn btn-outline-danger rounded py-3"> Decode </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- About -->
+
+
+    <section id="about" class="about">
+
+        
+        <h2 class="title">  About </h2>
+        <!-- <div class="t-line"></div> <div class="t-line"></div> -->
+    </section>
+
+
+
+        <!-- <div class="img-box">
+            <button> Pa </button>
+            <p> Drop or pick Image </p>
+        </div> -->
+<!-- 
+        <div class="upload_box shadow rounded-5">
+
+            <form id="upload_file_form" action="" method="post" class="form">
+
+                <div class="pt-5 pb-2">
+
+                    <div class="my-4">
+                        <input class="file_input" type="file" name="image" accept="image/*" hidden>
+                        <button type="button" class="btn btn-danger p-3 fs-4 rounded-5" onclick="selectInput()"> <i class="bi bi-upload mx-2"></i> Choose Image </button>
+                    </div>
+
+                    <div class="mb-5">
+                        <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt()">url</span> </h4>
+                        <input class="url_text" type="text" name="" id="" value="" hidden>
+                    </div>
+
+                </div>
+
+
+
+            </form> 
+
+        </div> -->
+
+{% endblock content %}
+
