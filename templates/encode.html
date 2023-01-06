@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block page_title %} Encode {% endblock page_title %}
+
+{% block content %}
+    <div class="container encode">
+        <div class="encode_header">
+            <h1 class="encode_title">Upload an image and add a secret message to encode.</h1>
+
+            <form id="upload_file_form" action="" method="post" class="form">                
+                <div class="upload_box rounded-5">
+                    
+                    <div class="pt-5 pb-2">
+    
+                        <div class="my-4">
+                            <input class="file_input" type="file" name="image" accept="image/*" hidden>
+                            <button type="button" class="btn btn-danger p-3 fs-4 rounded-5" onclick="selectInput()"> <i class="bi bi-upload mx-2"></i> Choose Image </button>
+                        </div>
+    
+                        <div class="mb-5">
+                            <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt()">url</span> </h4>
+                            <input class="url_text" type="text" name="" id="" value="" hidden>
+                        </div>
+    
+                    </div>
+                
+                </div>
+
+            
+                <div class="row upload_box_2">
+
+                    <div class="col-12 col-lg-6 bg-danger">
+                        <div class="img-box">
+                            <h2 class="text-center mb-3 p-img-text">Image Preview</h2>
+                            <img class="preview_img" src="https://static.fotor.com/app/features/img/ft_bg_banner.jpg" alt="Image not found" srcset="">
+                            <div class="mt-3 text-center">
+                                <button class="btn btn-light btn-lg" onclick="hideShow('upload_box_2', 'upload_box')" type="button">Change Image</button>             
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="col-12 col-lg-6 g-0">
+                        <div class="message-area">
+                            <h2 class="text-center mb-4">Secret Message </h2>
+                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea> -->
+                            <input class="form-control mx-auto" type="text" name="" id="" placeholder="Input secret message" style="width: 70%;">
+                            
+                            <div class="text-center">
+                               <button class="btn btn-danger btn-lg mt-3">Encode</button>
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+
+            </form> 
+            
+        </div>
+    </div>
+{% endblock content %}
