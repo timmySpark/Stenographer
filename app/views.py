@@ -11,3 +11,9 @@ def encode(request):
     template_name = 'encode.html'
     content = {}
     return render(request, template_name, content)
+
+
+def decode(request):
+    template_name = 'decode.html'
+    content = {}
+    return render(request, template_name, content)
