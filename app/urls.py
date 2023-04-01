@@ -5,5 +5,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('encode/', views.encode, name='encode'),
     path('decode/', views.decode, name='decode'),
-
+    path('result/', views.result, name='result'),
 ]

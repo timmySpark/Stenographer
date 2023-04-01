@@ -10,7 +10,8 @@
         <h1 class="ed-sec-title">Upload an image then Decode,<br> <span class="fs-3 pt-0 fw-normal"> or you can also try <a href="{% url 'encode' %}" class="text-decoration-none">encoding</a> an image </span></h1>
 
 
-        <form id="upload_file_form" class="form" action="" method="post">                
+        <form id="upload_file_form" class="form" action="{% url 'decode' %}" method="post" enctype='multipart/form-data'>   
+            {% csrf_token %}
             <div class="upload_box rounded-5">
                 
                 <div class="pt-5 pb-2">
@@ -23,7 +24,7 @@
 
                     <div class="mb-5">
                         <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt('decode')">url</span> </h4>
-                        <input class="url_text" type="text" name="" id="" value="" hidden>
+                        <input class="url_text" type="text" name="link-image" id="" value="" hidden>
                     </div>
 
 

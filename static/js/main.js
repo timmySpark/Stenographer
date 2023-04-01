@@ -101,12 +101,14 @@ function urlPrompt(opt) {
 
         $.get(url)
             .done(function() { 
+                $('.url_text').val(url)
+                console.log($('.url_text'))
 
                 if (opt == 'decode'){
+                    // var num = 1
                     $('#upload_file_form').submit()
                 }
 
-                $('.url_text').val(url)
                 $('.preview_img').attr("src", url)
                 hideShow('upload_box', 'upload_box_2')
             })
