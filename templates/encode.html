@@ -12,7 +12,9 @@
       </span>
     </h1>
 
-    <form id="upload_file_form" class="form" action="" method="post">
+    <form id="upload_file_form" class="form" action="{% url 'encode' %}" method="post" enctype='multipart/form-data'>    
+{% csrf_token %}     
+
       <div class="upload_box rounded-5">
         <div class="pt-5 pb-2">
           <div class="my-4">
@@ -37,7 +39,7 @@
               Or Paste
               <span class="url" onclick="urlPrompt('encode')">url</span>
             </h4>
-            <input class="url_text" type="text" name="" id="" value="" hidden />
+            <input class="url_text" type="text" name="link-image" id="" value="" hidden />
           </div>
         </div>
       </div>
@@ -56,27 +58,27 @@
               >
             </div>
 
-            <div class="col-12 col-lg-9 mt-5 mt-lg-0">
-              <h2 class="text-start text-lg-center mb-4">
-                Add a secret message
-              </h2>
+                            <div class="col-12 col-lg-9 mt-5 mt-lg-0">
+                                <h2 class="text-start text-lg-center mb-4"> Add a secret message </h2>
+                                
+                                <input class="form-control mx-auto py-4 secrect_msg_input" type="text" name="" id="" placeholder="Input secret message">
+                        
+                                <div class="text-center">
+                                    <button class="btn btn-danger btn-lg mt-3 px-5">Encode</button>
+                                </div>
+                            </div>
 
-              <input
-                class="form-control mx-auto py-4 secrect_msg_input"
-                type="text"
-                name=""
-                id=""
-                placeholder="Input secret message"
-              />
+                        </div>
+                    
+                        
+                    </div>
 
-              <div class="text-center">
-                <button class="btn btn-danger btn-lg mt-3 px-5">Encode</button>
-              </div>
-            </div>
-          </div>
+                    
+                </div>
+
+
+            </form> 
+            
         </div>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
 {% endblock content %}
