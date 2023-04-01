@@ -22,10 +22,7 @@
 // });
 
 // selectInput
-$(document).ready(function(){
-    
 
-});
 
 function hideShow(hideElem, showElem){
     $(`.${hideElem}`).css("display", "none");
@@ -33,13 +30,53 @@ function hideShow(hideElem, showElem){
 }
 
 
-function selectInput(){
+// how it works toggle
+
+function guideToggler(user){
+    // var selctedGuide = document.getElementsByClassName('guide')
+
+    // for (let index = 0; index < selctedGuide.length; index++) {
+
+    //     console.log(index)
+    //     console.log(user)
+
+    //     if (user = index) {
+    //         selctedGuide[index].style.display='block'  
+
+    //     }
+
+    //     else{
+    //         selctedGuide[index].style.display='none'
+    //     }
+        
+    // }
+
+    // if (word = 'premium') {
+    //     alert(user)
+    // }
+
+    // else{
+    //     alert(user)
+    // }
+
+}
+
+function selectInput(opt){
     $('.file_input').trigger('click');
     document.getElementById("upload_file_form").addEventListener('input', (evt) => {
         // console.log(music.target.files);
+
+        
+
         if (evt.target.files.length) {
+
+            if (opt == 'decode') {
+                $('#upload_file_form').submit()
+            }
+
+
             var reader = new FileReader();
- 
+
             reader.onload = function(){
                 $(".preview_img").attr("src", reader.result);
             }
@@ -47,13 +84,13 @@ function selectInput(){
             reader.readAsDataURL(evt.target.files[0]);
             hideShow('upload_box', 'upload_box_2')
 
-            // $('#upload_file_form').submit()
-        }
+
+            }
         
     });
 }
 
-function urlPrompt() {
+function urlPrompt(opt) {
     url = prompt('Paste a url')
 
     if (url == null || url == "") {
@@ -61,21 +98,30 @@ function urlPrompt() {
     }
 
     else{
-        // setting form value
+
         $.get(url)
             .done(function() { 
+
+                if (opt == 'decode'){
+                    $('#upload_file_form').submit()
+                }
+
                 $('.url_text').val(url)
                 $('.preview_img').attr("src", url)
-                // $('#upload_file_form').submit()
-                 hideShow('upload_box', 'upload_box_2')
+                hideShow('upload_box', 'upload_box_2')
             })
 
             .fail(function() { 
                 alert('Image not found on the web')
-            // Image doesn't exist - do something else.
 
-        })
+            })
         
+         
+
+            // $('.url_text').val(url)
+            // $('.preview_img').attr("src", url)
+            // hideShow('upload_box', 'upload_box_2')
+
         
        
     }

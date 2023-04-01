@@ -1,84 +1,133 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block page_content %} Stenograph
+{% endblock page_content %} {% block content %}
 
-{% block page_content %} Stenograph {% endblock page_content %}  
+<!-- New Hero Layout -->
 
-{% block content %}
-    
-    <div class="container">
+<section class="hero container" id="hero">
+  <!--  <div class="hero"> -->
+  <!-- <h1 class="hero-title mt-4 mb-5 d-block d-lg-none">Hide and view Texts in Images for <span class="text-danger">EASILY</span> and for <span class="text-danger">FREE</span></h1> -->
+  <div class="row px-3 px-md-5">
+    <div class="img-section col-12 col-lg-6">
+      <img class="hero-img" src="{% static 'img/Steg header.gif' %}" />
 
-
-        <div class="custom-design ">
-
-            <div class="header">
-
-                <div class="row">
-
-                    <div class="col-12 col-lg-6 text-center">
-                        <img class="header-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80" alt="Img not Found">
-                    </div>
-
-                    <div class="col-12 col-lg-6 mt-3">
-                        <h1 class="about-app"> Write & view hidden text in your favourite images.</h1>
-
-                        <div class="py-3 mt-4 sten-box">
-                            <a href="{% url 'encode' %}" class="w-100 btn btn-danger rounded py-3"> Encode </a>
-                            <span class="my-2 mx-3 fw-bold">OR</span>
-                            <a href="{% url 'encode' %}" class="w-100 btn btn-outline-danger rounded py-3"> Decode </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                
-
-            </div>
-
-        </div>
-
-
+      <!-- <h2 class="img-text mt-4">Hide and Texts in Image </h2>  -->
+      <!-- <span class="text-danger">Free</span> -->
     </div>
 
+    <div class="col-12 col-lg-6 px-3">
+      <h1 class="hero-title mt-5 mb-5">
+        Hide and view Texts in Images
+        <span class="text-danger">EASILY</span> and for
+        <span class="text-danger">FREE</span>
+      </h1>
+      <div class="sten_box d-none d-lg-flex py-5">
+        <a href="{% url 'encode'%}"
+          ><button class="btn btn-danger btn-lg px-5 py-3 mb-4 rounded-5">
+            Encode image
+          </button>
+        </a>
+        <span class="fs-5"
+          >Or click here to <a href="{% url 'decode' %}">decode</a></span
+        >
+      </div>
 
-    <!-- About -->
+      <div class="sten_box_mobile border py-4 d-flex d-lg-none mt-5">
+        <a href="{% url 'encode'%}"
+          ><button class="btn btn-danger btn-lg px-5 py-3 rounded-5">
+            Encode
+          </button>
+        </a>
+        <div class="my-2">OR</div>
+        <a href="{% url 'decode'%}"
+          ><button class="btn btn-danger btn-lg px-5 py-3 rounded-5">
+            Decode
+          </button>
+        </a>
+      </div>
+    </div>
 
+    <div class="svg_image">
+      <img
+        class="svg-right"
+        src="{% static 'svg/wavy.svg' %}"
+        alt=""
+        srcset=""
+      />
+      <img
+        class="svg-left"
+        src="{% static 'svg/spring.svg' %}"
+        alt=""
+        srcset=""
+      />
+    </div>
+  </div>
+</section>
 
-    <section id="about" class="about">
+<!-- About -->
 
-        
-        <h2 class="title">  About </h2>
-        <!-- <div class="t-line"></div> <div class="t-line"></div> -->
-    </section>
+<section id="about" class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="about-icon">
+          <!-- <i class="fa-brands fa-uncharted"></i> -->
+        </div>
+      </div>
 
+      <div class="col-12 col-lg-6 px-4 px-lg-0">
+        <h1>
+          All you need to know about
+          <span class="text-danger">S</span>teganographer.
+        </h1>
 
+        <!-- <h3 class="mt-5">What is Steganography?</h3>
+                    <p class="about-sten lead mt-3 fs-4"> According to <a href="https://en.wikipedia.org/wiki/Steganography">wikipedia</a>, Steganography is the practice of representing information within another message or physical object, in such a manner that the presence of the information is not evident to human inspection. In computing/electronic contexts, a computer file, message, image, or video is concealed within another file, message, image, or video. </p> -->
 
-        <!-- <div class="img-box">
-            <button> Pa </button>
-            <p> Drop or pick Image </p>
-        </div> -->
-<!-- 
-        <div class="upload_box shadow rounded-5">
+        <p class="lead mt-4 fs-4">
+          Steganography is an online application that enables user to hide
+          secret messages in pictures, It also enables user to view the messages
+          hidden.
+        </p>
 
-            <form id="upload_file_form" action="" method="post" class="form">
+        <p class="lead fs-4">
+          It is an application that makes
+          <a href="https://en.wikipedia.org/wiki/Steganography" target="_blank"
+            >Steganography</a
+          >
+          easier.
+        </p>
 
-                <div class="pt-5 pb-2">
+        <h5 class="mt-5">What we offer:</h5>
 
-                    <div class="my-4">
-                        <input class="file_input" type="file" name="image" accept="image/*" hidden>
-                        <button type="button" class="btn btn-danger p-3 fs-4 rounded-5" onclick="selectInput()"> <i class="bi bi-upload mx-2"></i> Choose Image </button>
-                    </div>
-
-                    <div class="mb-5">
-                        <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt()">url</span> </h4>
-                        <input class="url_text" type="text" name="" id="" value="" hidden>
-                    </div>
-
-                </div>
-
-
-
-            </form> 
-
-        </div> -->
+        <div class="d-flex flex-wrap mt-4">
+          <div class="me-3 mb-3">
+            <h5>
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              Encrypting keys & passwords
+            </h5>
+          </div>
+          <div class="me-3 mb-3">
+            <h5>
+              <i class="bi bi-check-circle-fill text-success me-2"></i>
+              Providing free and monetized Steganography services
+            </h5>
+          </div>
+          <div class="me-3 mb-3">
+            <h5>
+              <i class="bi bi-check-circle-fill text-success me-2"></i> Easy
+              Usage
+            </h5>
+          </div>
+          <div class="me-3 mb-3">
+            <h5>
+              <i class="bi bi-check-circle-fill text-success me-2"></i> Best
+              User Experience
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock content %}
-
