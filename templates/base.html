@@ -1,56 +1,68 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
     <!-- Bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+      integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n"
+      crossorigin="anonymous"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     <!-- Js -->
     <script src="{% static 'js/main.js' %}"></script>
 
-
-    <title> {% block page_title %}{% endblock page_title %} </title>
-
-</head>
-<body>
-    
-    {% include 'navbar.html' %}
-
-    {% block content %}
-
-    {% endblock content %}
-
+    <title>{% block page_title %}{% endblock page_title %}</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %} {% block content %} {% endblock content %}
 
     <section id="get-started" class="get-started">
+      <div class="container">
+        <h1
+          class="text-center text-header text-capitalize"
+          style="font-size: 45px"
+        >
+          How it works
+        </h1>
+        <!-- <h4 class="text-center mt-3 letter">An Easy guide for Regular Users</h4> -->
 
-        <div class="container">
+        <div class="text-center text-md-end mt-5">
+          <!-- <button>hey</button> -->
+          <button
+            class="btn btn-outline-dark btn-lg py-2 px-2 me-3 reg"
+            onclick="guideToggler(0)"
+          >
+            Regular User
+          </button>
+          <button
+            class="btn btn-outline-dark btn-lg py-2 px-2 prem"
+            onclick="guideToggler(1)"
+          >
+            Premium User
+          </button>
+        </div>
 
-            <h1 class="text-center text-capitalize" style="font-size: 45px;"> How it works </h1>
-            <!-- <h4 class="text-center mt-3 letter">An Easy guide for Regular Users</h4> -->
-
-
-            <div class="text-center text-md-end mt-5">
-                <!-- <button>hey</button> -->
-                <button class="btn btn-outline-dark btn-lg py-2 px-2 me-3 reg" onclick="guideToggler(0)">Regular User</button>
-                <button class="btn btn-outline-dark btn-lg py-2 px-2 prem" onclick="guideToggler(1)">Premium User</button>
-            </div>
-
-
-            <!-- Regular User -->
-            <div class="reg-user mt-5">
-
-                <!-- <h4>What regular user have access to:</h4>
+        <!-- Regular User -->
+        <div class="reg-user mt-5">
+          <!-- <h4>What regular user have access to:</h4>
 
                 <div class="content mt-5"> 
                     <div class="d-flex flex-column flex-wrap mt-4">
@@ -68,109 +80,127 @@
                     </div>   
                 </div> -->
 
-                <!-- How to use -->
-                <!-- <h1 class=" text-center mt-5">How to use</h1> -->
+          <!-- How to use -->
+          <!-- <h1 class=" text-center mt-5">How to use</h1> -->
 
-                <div class="row guide px-2 px-lg-0" style="margin-top: 100px;">
-                    <div class="col-12 col-lg-4">
-                        <div class="step-card shadow">
-                            <div class="number">1</div>
+          <div class="row guide px-2 px-lg-0" style="margin-top: 100px">
+            <div class="col-12 col-lg-4">
+              <div class="step-card shadow">
+                <div class="number">1</div>
 
-                            <div class="content mt-0">
-                                <h2 class="text-light">Encode</h2>
-                                <p class="text-white lead mt-4">On clicking on the encode button below, It allows you (a user) to select an image of your choice and provides a text field for inputing your secret message. </p>
-                            </div>
-
-                            <a href="{% url 'encode' %}"> <button> Encode <i class="bi bi-arrow-right"></i> </button> </a> 
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-4">
-                        <div class="step-card shadow">
-                            <div class="number">2</div>
-
-                            <div class="content mt-0">
-                                <h2 class="text-light">Download or Share</h2>
-                                <p class="text-white lead mt-4"> After encoding an image, A preview of the encoded image will be displayed with options like downloading and sharing. </p>
-                            </div>
-
-                            <a href="{% url 'encode' %}"> <button> Encode <i class="bi bi-arrow-right"></i> </button> </a> 
-
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-4">
-                        <div class="step-card shadow">
-                            <div class="number">3</div>
-
-                            <div class="content mt-0">
-                                <h2 class="text-light">Decode</h2>
-                                <p class="text-white lead mt-4"> After Encoding and saving has been done. To view a secret message in an encoded image you click on the decode button below, It also allows you (a user) to select a <strong>decoded</strong> image. And the secret message will be revealed with a copy button for saving in your clipboard.</p>
-                            </div>
-
-                            <a href="{% url 'decode' %}"> <button> Decode <i class="bi bi-arrow-right"></i> </button> </a> 
-
-
-                        </div>
-                    </div>
+                <div class="content mt-0">
+                  <h2 class="text-light">Encode</h2>
+                  <p class="text-white lead mt-4">
+                    On clicking on the encode button below, It allows you (a
+                    user) to select an image of your choice and provides a text
+                    field for inputing your secret message.
+                  </p>
                 </div>
+
+                <a href="{% url 'encode' %}">
+                  <button>Encode <i class="bi bi-arrow-right"></i></button>
+                </a>
+              </div>
             </div>
 
+            <div class="col-12 col-lg-4">
+              <div class="step-card shadow">
+                <div class="number">2</div>
 
-            <!-- Premium User -->
-            <div class="row guide prem-user" style="margin-top: 100px;">
-                <div class="col-12 col-lg-4">
-                    <div class="step-card shadow">
-                        <div class="number">1</div>
-
-                        <div class="content mt-0">
-                            <h2 class="text-light">ee</h2>
-                            <p class="text-white lead mt-4">On clicking on the encode button below, It allows you (a user) to select an image of your choice and provides a text field for inputing your secret message. </p>
-                        </div>
-
-                        <button> Encode <i class="bi bi-arrow-right"></i> </button>
-
-                    </div>
+                <div class="content mt-0">
+                  <h2 class="text-light">Download or Share</h2>
+                  <p class="text-white lead mt-4">
+                    After encoding an image, A preview of the encoded image will
+                    be displayed with options like downloading and sharing.
+                  </p>
                 </div>
 
-                <div class="col-12 col-lg-4">
-                    <div class="step-card shadow">
-                        <div class="number">2</div>
-
-                        <div class="content mt-0">
-                            <h2 class="text-light">Download or Share</h2>
-                            <p class="text-white lead mt-4"> After encoding an image, A preview of the encoded image will be displayed with options like downloading and sharing. </p>
-                        </div>
-
-                        <button> Encode <i class="bi bi-arrow-right"></i> </button>
-
-                    </div>
-                </div>
-
-
-                <div class="col-12 col-lg-4">
-                    <div class="step-card shadow">
-                        <div class="number">3</div>
-
-                        <div class="content mt-0">
-                            <h2 class="text-light">Decode</h2>
-                            <p class="text-white lead mt-4"> After Encoding and saving has been done. To view a secret message in an encoded image you click on the decode button below, It also allows you (a user) to select a <strong>decoded</strong> image. And the secret message will be revealed with a copy button for saving in your clipboard.</p>
-                        </div>
-
-                        <button> Decode <i class="bi bi-arrow-right"></i> </button>
-
-                    </div>
-                </div>
+                <a href="{% url 'encode' %}">
+                  <button>Encode <i class="bi bi-arrow-right"></i></button>
+                </a>
+              </div>
             </div>
 
+            <div class="col-12 col-lg-4">
+              <div class="step-card shadow">
+                <div class="number">3</div>
 
+                <div class="content mt-0">
+                  <h2 class="text-light">Decode</h2>
+                  <p class="text-white lead mt-4">
+                    After Encoding and saving has been done. To view a secret
+                    message in an encoded image you click on the decode button
+                    below, It also allows you (a user) to select a
+                    <strong>decoded</strong> image. And the secret message will
+                    be revealed with a copy button for saving in your clipboard.
+                  </p>
+                </div>
+
+                <a href="{% url 'decode' %}">
+                  <button>Decode <i class="bi bi-arrow-right"></i></button>
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4"></div>
+          </div>
         </div>
 
+        <!-- Premium User -->
+        <div class="row guide prem-user" style="margin-top: 100px">
+          <div class="col-12 col-lg-4">
+            <div class="step-card shadow">
+              <div class="number">1</div>
+
+              <div class="content mt-0">
+                <h2 class="text-light">ee</h2>
+                <p class="text-white lead mt-4">
+                  On clicking on the encode button below, It allows you (a user)
+                  to select an image of your choice and provides a text field
+                  for inputing your secret message.
+                </p>
+              </div>
+
+              <button>Encode <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <div class="step-card shadow">
+              <div class="number">2</div>
+
+              <div class="content mt-0">
+                <h2 class="text-light">Download or Share</h2>
+                <p class="text-white lead mt-4">
+                  After encoding an image, A preview of the encoded image will
+                  be displayed with options like downloading and sharing.
+                </p>
+              </div>
+
+              <button>Encode <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <div class="step-card shadow">
+              <div class="number">3</div>
+
+              <div class="content mt-0">
+                <h2 class="text-light">Decode</h2>
+                <p class="text-white lead mt-4">
+                  After Encoding and saving has been done. To view a secret
+                  message in an encoded image you click on the decode button
+                  below, It also allows you (a user) to select a
+                  <strong>decoded</strong> image. And the secret message will be
+                  revealed with a copy button for saving in your clipboard.
+                </p>
+              </div>
+
+              <button>Decode <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-
-
 
     <!-- View and Rates -->
 
@@ -212,133 +242,189 @@
         </div>
     </section> -->
 
-
     <section id="faq" class="faq">
-
-        <div class="container">
-            <h1 class="text-center mb-3">FAQ</h1>
-            <div class="row">
-                <div class="pt-5">
-                    <div class="accordion accordion-flush bg-black" id="accordionFlush">
- 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Accordion Item #1
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                            </div>
-                        </div>
-        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Accordion Item #2
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Accordion Item #3
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                Accordion Item #3
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                Accordion Item #3
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlush">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                            </div>
-                        </div>
-        
-        
-                    </div>
+      <div class="container">
+        <h1 class="text-center text-header mb-3">FAQ</h1>
+        <div class="row">
+          <div class="pt-5">
+            <div class="accordion accordion-flush bg-black" id="accordionFlush">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    Accordion Item #1
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlush"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the first item's accordion body.
+                  </div>
                 </div>
-                
-                <!-- <div class="col-12 col-lg-5 d-none d-lg-block text-center">
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    Accordion Item #2
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo"
+                  data-bs-parent="#accordionFlush"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the second item's accordion body. Let's imagine this being
+                    filled with some actual content.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                    Accordion Item #3
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree"
+                  data-bs-parent="#accordionFlush"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the
+                    space to make it look, at least at first glance, a bit more
+                    representative of how this would look in a real-world
+                    application.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseFour"
+                  >
+                    Accordion Item #3
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingfive"
+                  data-bs-parent="#accordionFlush"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the
+                    space to make it look, at least at first glance, a bit more
+                    representative of how this would look in a real-world
+                    application.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFive">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFive"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseFive"
+                  >
+                    Accordion Item #3
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingfive"
+                  data-bs-parent="#accordionFlush"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the third item's accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the
+                    space to make it look, at least at first glance, a bit more
+                    representative of how this would look in a real-world
+                    application.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-12 col-lg-5 d-none d-lg-block text-center">
                     <i class="bi bi-question-circle-fill text-dark text-center" style="font-size: 250px;"></i>
                 </div> -->
-            </div>
         </div>
-            
+      </div>
     </section>
 
     <footer class="footer">
-        <div class="mx-auto text-white w-90 w-md-75">
-            <div class="text-start text-md-center">
-                <h1 class="text-center">Stenographer</h1>
-                <p class="fs-5 my-4 lead px-3">This is a website application that allows user to hide secret messages in pictures. <a href="#">Learn more.</a> </p>
-                <hr class="text-white">
-
-                <div id="contact" class="d-flex ms-3 ms-lg-0 justify-content-md-center flex-wrap mt-5 mb-2">
-                    <div class="me-5" style="margin-bottom: 43px;">
-                        <i class="social-icon bi bi-telephone-outbound-fill"></i>
-                        <a class="social-text-info" href="tel:+2348145196075"> +234 814 519 6075 </a>
-                    </div>
-
-                    <div>
-                        <i class="social-icon bi bi-envelope-check-fill"></i>
-                        <a class="social-text-info" href="mailto:tomisinerinle4@gmail.com"> tomisinerinle4@gmail.com </a>
-                    </div>
-                </div>
-
-                <p class="mt-5 text-center">This website was designed and created by <a class="social-text-info" href="">Erinle Timilehin</a> and <a class="social-text-info" href="">Erinle Tomisin</a></p>
-
-            </div>
-          
-        
-        </div>
+      <div class="mx-auto text-white w-90 w-md-75">
+        <p class="mt-2 text-center">
+          Created by <a class="social-text-info" href="">timmy spark</a> and
+          <a class="social-text-info" href="">Erinle Tomisin</a>
+        </p>
+      </div>
     </footer>
-    <!-- <section id="contact-us" class="contact-us">
-        <div class="container">
-            <h1 class="text-center">Contact Us</h1>
-
-            <div class="contact-box shadow-lg">
-                <form action="" method="post">
-
-                    <input class="form-input" type="text" name="" id="email" placeholder="Name">
-
-                    <input class="form-input" type="text" name="" id="email" placeholder="Email">
-
-
-                    <textarea class="form-input" style="line-height: normal;" name="" id="msg" cols="10" rows="10" placeholder="Message"></textarea>
-
-                </form>
-            </div>
-        </div>
-    </section> -->
-
 
     <!-- Bootstrap Cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Font awesome -->
-    <script src="https://kit.fontawesome.com/f68f83e790.js" crossorigin="anonymous"></script>
-
-</body>
+    <script
+      src="https://kit.fontawesome.com/f68f83e790.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
