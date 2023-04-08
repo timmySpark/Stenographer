@@ -4,6 +4,6 @@
   },
 
   "scripts": {
-    "vercel-build": "python build.py"
+    "vercel-build": "npm run build"
   }
 }
