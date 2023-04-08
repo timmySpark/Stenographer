@@ -9,6 +9,27 @@ import random
 import string
 
 REGULAR_UPLOAD_PATH = 'media/r_uploads'
+ENCRYPTED_UPLOAD_PATH = 'media/encryptedImages'
+
+def remove_old_files():
+    folders =[REGULAR_UPLOAD_PATH, ENCRYPTED_UPLOAD_PATH]
+    M = 2
+    current_time = time.time()
+    minute_in_sec = M*60
+    # os.chdir(os.path.join(os.getcwd(), folder))
+    for image_path in folders:
+        list_of_files = os.listdir(image_path)
+        if list_of_files != []:
+            for i in list_of_files:
+                file_location = os.path.join(image_path, i)
+                file_time = os.stat(file_location).st_mtime
+
+                # if a file is modified before M minute then delete it
+                if(file_time < current_time - minute_in_sec):
+                    print(f" Delete : {i}")
+                    os.remove(file_location)
+
+# remove_old_files(folder_path=REGULAR_UPLOAD_PATH)
 
 
 class SaveImage:
@@ -18,16 +39,21 @@ class SaveImage:
         self.is_saved = False
         self.img_path = None
         self.save(img, is_link, encode)
+        remove_old_files()
 
         
     def save(self, unsaved_img, is_link, encode):
         characters = ''.join(random.choice(string.ascii_lowercase + string.digits) for i in range(5))
 
         if encode:
-            cv_Imgname = f"steganograph_{characters}.PNG"
+            image_name = str(unsaved_img).split('.')[0]
+            if is_link:
+                cv_Imgname = f"url-steganographer_{characters}.png"
+            else:
+                cv_Imgname = f"{str(image_name)}-steganographer{characters}.png"
 
         else:
-            cv_Imgname = f"steganograph(decode){characters}.PNG"
+            cv_Imgname = f"steganograph(decode){characters}.png"
 
         if is_link:
             try:
@@ -53,7 +79,6 @@ class SaveImage:
             self.img_name = cv_Imgname
             self.img_path = f'{REGULAR_UPLOAD_PATH}/{cv_Imgname}'
             self.is_saved = True
-            print(fss.url(file))
         
         # Deleting image after 30 mins
 
@@ -68,12 +93,14 @@ class SaveImage:
 def encrypt_image(img_path, msg, img_name):
     try:
         secret = lsb.hide(img_path, msg)
+
     except:
-        context = {'status': 'error', 'error': 'An error occured while decoding your message'}
+        context = {'status': 'error', 'error': 'An error occured while encoding your message. Try using an Image with a different file extention'}
+        print(context)
         return context
     else:
-        secret.save(f"encryptedImages/{img_name}")
-        context = {'status': 'success', 'encrypted_img_path': f"encryptedImages/{img_name}"}
+        secret.save(f"{ENCRYPTED_UPLOAD_PATH}/{img_name}")
+        context = {'status': 'success', 'encrypted_img_path': f"{ENCRYPTED_UPLOAD_PATH}/{img_name}"}
         return context
 
 
