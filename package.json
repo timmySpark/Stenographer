@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "@natanffs/vercel-python-wsgi": "^1.1.1"
+  },
+
+  "scripts": {
+    "vercel-build": "python build.py"
   }
 }
