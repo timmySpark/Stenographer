@@ -1,10 +1,19 @@
 {
     "version": 2,
     "builds": [
-      { "src": "stenograph/wsgi.py", "use": "@natanffs/vercel-python-wsgi" }
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": { "outputDirectory": "build" }
+      },
+      {
+        "src": "manage.py",
+        "use": "@natanffs/vercel-python-wsgi",
+        "config": { "output": "build" }
+      }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/manage.py" }
+      { "src": "/(.*)", "dest": "/build/manage.py" }
     ],
     "env": {
       "DJANGO_SETTINGS_MODULE": "stenograph.settings"
