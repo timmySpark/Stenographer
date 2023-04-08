@@ -1,7 +1,7 @@
 {
     "builds": [{
         "src": "stenograph/wsgi.py",
-        "use": "@natanffs/python",
+        "use": "@ardnt/python",
         "config": { "maxLambdaSize": "15mb" }
     }],
 
