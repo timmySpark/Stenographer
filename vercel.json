@@ -1,14 +1,13 @@
 {
-    "builds": [{
-        "src": "stenograph/wsgi.py",
-        "use": "@ardnt/python",
-        "config": { "maxLambdaSize": "15mb" }
-    }],
-
+    "version": 2,
+    "builds": [
+      { "src": "manage.py", "use": "@natanffs/vercel-python-wsgi" }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "stenograph/wsgi.py"
-        }
-    ]
-}
+      { "src": "/(.*)", "dest": "/manage.py" }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "stenograph.settings"
+    }
+  }
+  
