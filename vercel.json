@@ -1,7 +1,7 @@
 {
     "version": 2,
     "builds": [
-      { "src": "manage.py", "use": "@natanffs/vercel-python-wsgi" }
+      { "src": "stenograph/wsgi.py", "use": "@natanffs/vercel-python-wsgi" }
     ],
     "routes": [
       { "src": "/(.*)", "dest": "/manage.py" }
