@@ -1,1 +1,1 @@
-web: gunicorn stenograph.wsgi --log-file -
+web: gunicorn stenograph.wsgi
