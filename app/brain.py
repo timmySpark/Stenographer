@@ -1,8 +1,6 @@
 import os
 from django.core.files.storage import FileSystemStorage
 from stegano import lsb
-from datetime import datetime, timedelta  
-import cv2
 import time
 import requests
 import random
@@ -53,7 +51,7 @@ class SaveImage:
                 cv_Imgname = f"{str(image_name)}-steganographer{characters}.png"
 
         else:
-            cv_Imgname = f"steganograph(decode){characters}.png"
+            cv_Imgname = f"steganograph_decode{characters}.png"
 
         if is_link:
             try:
