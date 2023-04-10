@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'DEFAULT_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '*']
+ALLOWED_HOSTS = ['.vercel.app  ', '*']
 
 
 # Application definition
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'stenograph.wsgi.application'
+WSGI_APPLICATION = 'stenograph.wsgi.app'
 
 
 # Database
