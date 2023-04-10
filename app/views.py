@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from stegano import lsb
 from app import brain
 
 REGULAR_UPLOAD_PATH = 'media/r_uploads'
