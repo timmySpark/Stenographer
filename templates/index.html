@@ -20,46 +20,26 @@
         <span class="text-danger">EASILY</span> and for
         <span class="text-danger">FREE</span>
       </h1>
+
       <div class="sten_box d-none d-lg-flex py-5">
-        <a href="{% url 'encode'%}"
-          ><button class="btn btn-danger btn-lg px-5 py-3 mb-4 rounded-5">
-            Encode image
-          </button>
-        </a>
-        <span class="fs-5"
-          >Or click here to <a href="{% url 'decode' %}">decode</a></span
-        >
+        <a href="{% url 'encode'%}"> <button class="btn btn-danger btn-lg px-5 py-3 mb-4 rounded-5"> Encode image </button> </a>
+        <span class="fs-5"> Or click here to <a href="{% url 'decode' %}">decode</a> </span>
       </div>
 
       <div class="sten_box_mobile border py-4 d-flex d-lg-none mt-5">
-        <a href="{% url 'encode'%}"
-          ><button class="btn btn-danger btn-lg px-5 py-3 rounded-5">
-            Encode
-          </button>
-        </a>
+
+        <a href="{% url 'encode'%}"> <button class="btn btn-danger btn-lg px-5 py-3 rounded-5"> Encode </button> </a>
         <div class="my-2">OR</div>
-        <a href="{% url 'decode'%}"
-          ><button class="btn btn-danger btn-lg px-5 py-3 rounded-5">
-            Decode
-          </button>
-        </a>
+        <a href="{% url 'decode'%}"> <button class="btn btn-danger btn-lg px-5 py-3 rounded-5"> Decode </button> </a>
+
       </div>
     </div>
 
     <div class="svg_image">
-      <img
-        class="svg-right"
-        src="{% static 'svg/wavy.svg' %}"
-        alt=""
-        srcset=""
-      />
-      <img
-        class="svg-left"
-        src="{% static 'svg/spring.svg' %}"
-        alt=""
-        srcset=""
-      />
+      <img class="svg-right" src="{% static 'svg/wavy.svg' %}" alt="" srcset="" />
+      <img class="svg-left" src="{% static 'svg/spring.svg' %}" alt="" srcset="" />
     </div>
+
   </div>
 </section>
 
@@ -67,29 +47,20 @@
 
 <section id="about" class="about">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <div class="about-icon">
-          <!-- <i class="fa-brands fa-uncharted"></i> -->
-        </div>
-      </div>
 
+    <div class="row first-row flex-column-reverse flex-lg-row">
       <div class="col-12 col-lg-6 px-4 px-lg-0">
-        <h1>
-          All you need to know about
-          <span class="text-danger">S</span>teganographer.
+        <h1 class="about-text">
+          What is <span class="text-danger">S</span>teganographer about?
         </h1>
 
-        <!-- <h3 class="mt-5">What is Steganography?</h3>
-                    <p class="about-sten lead mt-3 fs-4"> According to <a href="https://en.wikipedia.org/wiki/Steganography">wikipedia</a>, Steganography is the practice of representing information within another message or physical object, in such a manner that the presence of the information is not evident to human inspection. In computing/electronic contexts, a computer file, message, image, or video is concealed within another file, message, image, or video. </p> -->
-
-        <p class="lead mt-4 fs-4">
-          Steganography is an online application that enables user to hide
+        <p class="lead mt-4" style="line-height:2">
+          Steganographer is an online application that enables user to hide
           secret messages in pictures, It also enables user to view the messages
           hidden.
         </p>
 
-        <p class="lead fs-4">
+        <p class="lead">
           It is an application that makes
           <a href="https://en.wikipedia.org/wiki/Steganography" target="_blank"
             >Steganography</a
@@ -97,19 +68,48 @@
           easier.
         </p>
 
-        <h5 class="mt-5">What we offer:</h5>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="text-end">
+          <img  class="about-img" src="{% static 'img/about-app.png' %}" alt="" srcset="">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-12 col-lg-6">
+
+        <div class="">
+          <img  class="about-img" src="{% static 'img/what-we-do.png' %}" alt="" srcset="">
+        </div>
+
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <h1 class="about-text">
+          What is <span class="text-danger">S</span>teganographer offer?
+        </h1>
+
+        <p class="lead mt-4" style="line-height:2">
+          Steganographer offers a Free and Easy online service. It was created in an easy way for the best user experience. Steganographer offers the following:
+        </p>
 
         <div class="d-flex flex-wrap mt-4">
-          <div class="me-3 mb-3">
+          <div class="me-3 mb-4">
             <h5>
               <i class="bi bi-check-circle-fill text-success me-2"></i>
-              Encrypting keys & passwords
+              Hiding and viewing messages in Image
             </h5>
           </div>
+
           <div class="me-3 mb-3">
             <h5>
               <i class="bi bi-check-circle-fill text-success me-2"></i>
-              Providing free and monetized Steganography services
+              Passwording Encoded Images (For premium users)
             </h5>
           </div>
           <div class="me-3 mb-3">
@@ -126,7 +126,10 @@
           </div>
         </div>
       </div>
+
+      </div>
     </div>
+
   </div>
 </section>
 

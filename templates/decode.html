@@ -1,84 +1,49 @@
-{% extends 'base.html' %} {% block page_titile %} Decode {% endblock page_titile
-%} {% block content %}
+{% extends 'base.html' %} 
+{% block page_titile %} Decode {% endblock page_titile%} 
+{% block content %}
+
+
+{% if result %}
+
+<div class="container">
+
+  {% include "includes/result-box.html" with sten_type="decode" %}
+
+  <!-- <p class="mt-4 text-center"><i class="bi bi-info-circle-fill me-2"></i> Encrypted Images are not secure. Anyone can view encrypted image with the aid or the module used for this website.</p> -->
+
+  
+</div>
+
+{% else %}
+
 <div class="container decode ed-sec">
   <div class="encode_decode_header">
     <!-- <h1 class="ed-sec-title">Upload an image and add a secret message to encode.</h1> -->
-    <h1 class="ed-sec-title">
-      Upload an image then <span class="text-danger">Decode</span><br />
-      <span class="fs-3 pt-0 fw-normal">
-        or you can also try
-        <a href="{% url 'encode' %}" class="text-dark">encoding</a>
-        an image
-      </span>
+    <h1 class="ed-sec-title"> Upload an image then <span class="text-danger">Decode</span> <br />
+      <span class="fs-3 pt-0 fw-normal"> or you can also try <a href="{% url 'encode' %}" class="text-dark">encoding</a> an image </span>
     </h1>
 
-    <form id="upload_file_form" class="form" action="" method="post">
-      <div class="upload_box rounded-5">
-        <div class="pt-5 pb-2">
-          <div class="my-4">
-            <input
-              class="file_input"
-              type="file"
-              name="image"
-              accept="image/*"
-              hidden
-            />
-            <button
-              type="button"
-              class="btn btn-danger p-3 fs-4 rounded-5"
-              onclick="selectInput('decode')"
-            >
-              <i class="bi bi-upload mx-2"></i> Choose Image
-            </button>
-          </div>
-
-                    <div class="mb-5">
-                        <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt('decode')">url</span> </h4>
-                        <input class="url_text" type="text" name="" id="" value="" hidden>
-                    </div>
-
-
+    <form id="upload_file_form" class="form" action="{% url 'decode' %}" method="post" enctype='multipart/form-data'>
+       {% csrf_token %}     
+        <div class="upload_box rounded-5">
+            <div class="pt-5 pb-2">
+                <div class="my-4">
+                    <input class="file_input" type="file" name="image" accept="image/*" hidden />
+                    <button type="button" class="btn btn-danger p-3 fs-4 rounded-5" onclick="selectInput('decode')" >
+                        <i class="bi bi-upload mx-2"></i> Choose Image
+                    </button>
                 </div>
+
+                <div class="mb-5">
+                    <h4 class="text-center"> Or Paste <span class="url" onclick="urlPrompt('decode')">url</span> </h4>
+                    <input class="url_text" type="text" name="link-image" id="" value="" hidden>
+                </div>
+            </div>
             
-            </div>
-
-      {% comment %}
-      <div class="upload_box_2">
-        <div class="message-area">
-          <div class="row px-5 pb-3 mt-5">
-            <div class="col-3">
-              <img class="preview_img" src="" alt="Image not found" srcset="" />
-
-              <a
-                class="mt-3 text-center d-block"
-                href=""
-                onclick="hideShow(upload_box, upload_box_2)"
-                >Change Image</a
-              >
-            </div>
-
-            <div class="col-9">
-              <h2 class="text-center mb-4">Add a secret message</h2>
-
-              <input
-                class="form-control mx-auto py-4"
-                type="text"
-                name=""
-                id=""
-                placeholder="Input secret message"
-                style="width: 80%"
-              />
-
-              <div class="text-center">
-                <button class="btn btn-danger btn-lg mt-3 px-5">Encode</button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      {% endcomment %}
     </form>
   </div>
 </div>
+{% endif %}
 
 {% endblock content %}
