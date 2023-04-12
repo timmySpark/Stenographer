@@ -34,213 +34,61 @@
   <body>
     {% include 'navbar.html' %} {% block content %} {% endblock content %}
 
-    <section id="get-started" class="get-started">
-      <div class="container">
-        <h1
-          class="text-center text-header text-capitalize"
-          style="font-size: 45px"
-        >
-          How it works
-        </h1>
-        <!-- <h4 class="text-center mt-3 letter">An Easy guide for Regular Users</h4> -->
+    <h1 class="text-center text-header text-capitalize mb-4" style="font-size: 45px">
+      How it works
+    </h1>
+    <section class="how-it-works">
+      <!-- Box one -->
+      <div class="box-container mt-4">
+        <button class="btn btn-danger px-2 mx-2" disabled>Step 1</button>
+        <h3 class="mb-5 px-2">Select an Image 📷</h3>
 
-        <div class="text-center text-md-end mt-5">
-          <!-- <button>hey</button> -->
-          <button
-            class="btn btn-outline-dark btn-lg py-2 px-2 me-3 reg"
-            onclick="guideToggler(0)"
-          >
-            Regular User
-          </button>
-          <button
-            class="btn btn-outline-dark btn-lg py-2 px-2 prem"
-            onclick="guideToggler(1)"
-          >
-            Premium User
-          </button>
+        <div class="mb-4 instruction">
+          <p>
+            First, choose the image you want to remove background from by
+            clicking on “Start from a photo.
+          </p>
+          <p>
+            Your image format can be PNG or JPG. We support all image
+            dimensions.
+          </p>
         </div>
+      </div>
 
-        <!-- Regular User -->
-        <div class="reg-user mt-5">
-          <!-- <h4>What regular user have access to:</h4>
+      <!-- Box two -->
+      <div class="box-container mt-4">
+        <button class="btn btn-danger px-2 mx-2" disabled>Step 2</button>
+        <h3 class="mb-5 px-2">Select an Image 📷</h3>
 
-                <div class="content mt-5"> 
-                    <div class="d-flex flex-column flex-wrap mt-4">
-                        <div class="me-3 mb-3">
-                            <h5 class="fw-normal "> <i class="bi bi-check-circle-fill text-success me-2"></i> Encoding images (hiding messages in images)</h5>
-                        </div>
-                        <div class="me-3 mb-3">
-                            <h5 class="fw-normal "> <i class="bi bi-check-circle-fill text-success me-2"></i> Decoding images (Revealing messages hidden) </h5>
-                        </div>
-
-                        <div class="me-3 mb-3">
-                            <h5 class="fw-normal " style="line-height: 1.7;"> <i class="bi bi-x-circle-fill text-danger me-2"></i> Securing encoded images (Anyone that have your encoded image can easily decode and see your message with the aid of this application)</h5>
-                        </div>
-                       
-                    </div>   
-                </div> -->
-
-          <!-- How to use -->
-          <!-- <h1 class=" text-center mt-5">How to use</h1> -->
-
-          <div class="row guide px-2 px-lg-0" style="margin-top: 100px">
-            <div class="col-12 col-lg-4">
-              <div class="step-card shadow">
-                <div class="number">1</div>
-
-                <div class="content mt-0">
-                  <h2 class="text-light">Encode</h2>
-                  <p class="text-white lead mt-4">
-                    On clicking on the encode button below, It allows you (a
-                    user) to select an image of your choice and provides a text
-                    field for inputing your secret message.
-                  </p>
-                </div>
-
-                <a href="{% url 'encode' %}">
-                  <button>Encode <i class="bi bi-arrow-right"></i></button>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-              <div class="step-card shadow">
-                <div class="number">2</div>
-
-                <div class="content mt-0">
-                  <h2 class="text-light">Download or Share</h2>
-                  <p class="text-white lead mt-4">
-                    After encoding an image, A preview of the encoded image will
-                    be displayed with options like downloading and sharing.
-                  </p>
-                </div>
-
-                <a href="{% url 'encode' %}">
-                  <button>Encode <i class="bi bi-arrow-right"></i></button>
-                </a>
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-              <div class="step-card shadow">
-                <div class="number">3</div>
-
-                <div class="content mt-0">
-                  <h2 class="text-light">Decode</h2>
-                  <p class="text-white lead mt-4">
-                    After Encoding and saving has been done. To view a secret
-                    message in an encoded image you click on the decode button
-                    below, It also allows you (a user) to select a
-                    <strong>decoded</strong> image. And the secret message will
-                    be revealed with a copy button for saving in your clipboard.
-                  </p>
-                </div>
-
-                <a href="{% url 'decode' %}">
-                  <button>Decode <i class="bi bi-arrow-right"></i></button>
-                </a>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4"></div>
-          </div>
+        <div class="mb-4 instruction">
+          <p>
+            First, choose the image you want to remove background from by
+            clicking on “Start from a photo.
+          </p>
+          <p>
+            Your image format can be PNG or JPG. We support all image
+            dimensions.
+          </p>
         </div>
+      </div>
 
-        <!-- Premium User -->
-        <div class="row guide prem-user" style="margin-top: 100px">
-          <div class="col-12 col-lg-4">
-            <div class="step-card shadow">
-              <div class="number">1</div>
+      <!-- Box three -->
+      <div class="box-container mt-4">
+        <button class="btn btn-danger px-2 mx-2" disabled>Step 3</button>
+        <h3 class="mb-5 px-2">Select an Image 📷</h3>
 
-              <div class="content mt-0">
-                <h2 class="text-light">ee</h2>
-                <p class="text-white lead mt-4">
-                  On clicking on the encode button below, It allows you (a user)
-                  to select an image of your choice and provides a text field
-                  for inputing your secret message.
-                </p>
-              </div>
-
-              <button>Encode <i class="bi bi-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-4">
-            <div class="step-card shadow">
-              <div class="number">2</div>
-
-              <div class="content mt-0">
-                <h2 class="text-light">Download or Share</h2>
-                <p class="text-white lead mt-4">
-                  After encoding an image, A preview of the encoded image will
-                  be displayed with options like downloading and sharing.
-                </p>
-              </div>
-
-              <button>Encode <i class="bi bi-arrow-right"></i></button>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-4">
-            <div class="step-card shadow">
-              <div class="number">3</div>
-
-              <div class="content mt-0">
-                <h2 class="text-light">Decode</h2>
-                <p class="text-white lead mt-4">
-                  After Encoding and saving has been done. To view a secret
-                  message in an encoded image you click on the decode button
-                  below, It also allows you (a user) to select a
-                  <strong>decoded</strong> image. And the secret message will be
-                  revealed with a copy button for saving in your clipboard.
-                </p>
-              </div>
-
-              <button>Decode <i class="bi bi-arrow-right"></i></button>
-            </div>
-          </div>
+        <div class="mb-4 instruction">
+          <p>
+            First, choose the image you want to remove background from by
+            clicking on “Start from a photo.
+          </p>
+          <p>
+            Your image format can be PNG or JPG. We support all image
+            dimensions.
+          </p>
         </div>
       </div>
     </section>
-
-    <!-- View and Rates -->
-
-    <!-- <section id="customer-feedback" class="customer-feedback">
-        <div class="container">
-
-            <div class="row" style="padding: 0 150px;">
-                <div class="col-12 mx-auto">
-                    <div class="d-flex justify-content-center flex-wrap" style="padding-top: 120px;">
-                        
-                        <div class="box">
-                            <i class="bi bi-eye mb-2 text-primary"></i>
-                            <span class="fw-bold mt-4 mb-5">200</span>
-                        </div>
-
-                        <div class="box">
-                            <i class="bi bi-hand-thumbs-up mb-3 text-info"></i>
-                            <span class="fw-bold mt-4 mb-5">200</span>
-                        </div>
-
-                        <div class="box">
-                            <i class="bi bi-window mb-3 text-danger"></i>
-                            <span class="fw-bold mt-4 mb-5">200</span>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="text-center">
-                        <img class="feedback-img" src="https://o.remove.bg/downloads/00de1d91-e0d5-48c1-87cf-e3c33123fe6a/istockphoto-1288486043-612x612-removebg-preview.png" alt="Image not found">
-                    </div>
-                    
-                </div>
-
-            </div>
-
-        </div>
-    </section> -->
 
     <section id="faq" class="faq">
       <div class="container">
