@@ -1,0 +1,122 @@
+<div class="p-lg">
+
+    <div class="row result-display p-4 pb-5">
+
+        <div class="col-12 col-lg-7">
+            {% if sten_type == 'encode' %}
+                <div class="">
+                    <span class="image-toggle-text me-3" onclick="switchImg(this, 'original')"> Original Image</span>
+                    <span class="image-toggle-text active" onclick="switchImg(this, 'encoded')">Encoded Image</span>
+                
+                </div>
+
+                <div class="result-images text-center mt-5 mb-5 mb-lg-0 ">
+                    <img class="original_img" src="/{{user_image}}" alt="" srcset="">
+                </div>
+
+
+                <div class="result-images text-center mt-5 mb-5 mb-lg-0 ">
+                    <img class="encoded_img" src="/{{encrypted_img}}" alt="" srcset="">
+                    <!-- <a class="d-block mx-auto mt-3" href="{% url 'decode' %}?/image=/{{encrypted_img}}">decode this image</a> -->
+                    <!-- <button class="btn btn-outline-dark mt-4 d-block mx-auto">Decode this Image</button> -->
+                    
+                </div>
+
+            {% else %}
+
+                <div class="text-center">
+                    <span class="image-toggle-text active me-3"> Uploaded Image</span>
+                </div>
+
+                <div class="result-images text-center mt-5 mb-5 mb-lg-0 ">
+                    <img src="/{{user_image}}" alt="Uploaded Img" srcset="">
+                </div>
+
+            {% endif %}
+
+            
+
+        </div>
+
+        <div class="col-12 col-lg-5 share-section">
+
+            {% if sten_type == 'encode' %}
+
+                {% if error %}
+
+                <p class="alert-danger">{{error}}. Click to <a href="{% url 'encode' %}">encode</a> a gain</p>
+
+                {% else %}
+
+                    <!-- Download Image -->
+                    <a download  href="/{{encrypted_img}}" target="
+                    _blank" class="d-none download-link"></a>
+
+                    <button onclick='downloadImg()' class="btn btn-danger px-5 py-3 fw-bold" style="border-radius: 20px;"><i class="bi bi-download fs-4 me-2"></i> Download</button>
+                    <div class="modal download-failed" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title text-danger">Download Failed</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>It seems Your Image have been deleted from our server.</p>
+                                <p>You can either Re-encode this particular Image with hidden text, Or Encode from scratch</p>
+                                
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="location.reload()">Re-Encode</button>
+                            <button type="button" class="btn btn-secondary" onclick="window.location.assign('./')">Encode again</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- <a onclick="window.location.assign('./')">
+                        redirect
+                    </a> -->
+                    
+                    <!-- Share -->
+                    <div class="mt-5 mb-2 fs-5">or share: </div>
+                    <div class="social-icons">
+                        <a href='whatsapp://send?text=https://tomisinerinle.up.railway.app/static/portfolio/images/Me5.jpg' data-action="share/whatsapp/share"><i class="bi bi-whatsapp"></i></a>
+                        
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-snapchat"></i>
+                    </div>
+                {% endif %}
+
+            {% else %}
+
+                <span class="fw-bold mb-2"> Secret Message</span>
+                {% if error %}
+                    <p class="text-danger"><i class="bi bi-info-circle-fill"></i> An error occured when trying to decode. It either this Image has expired or image was not encoded with Steganographer. click to <a href="{% url 'encode' %}">encode</a>  an image</p>
+                {% else %}
+                <textarea disabled class="p-2 sec-msg" name="" id="" cols="30" rows="5">{{revealed_text}}</textarea>
+                {% endif %}
+                
+                <!-- <button class="btn btn-danger mt-3">Copy Text</button> -->
+
+                {% if not error %}
+                <div class="mt-5 mb-2 fs-5">or share: </div>
+                <div class="social-icons">
+                <i class="bi bi-clipboard" onclick="text=document.getElementsByClassName('sec-msg');navigator.clipboard.writeText(text[0].innerHTML); alert('copied')"></i>
+
+                <a href='whatsapp://send?text=Your secret message is: http://www.yoursite.com'><i class="bi bi-whatsapp"></i></a>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-snapchat"></i>
+                </div>
+                {% endif %}
+
+            {% endif %}
+            
+        </div>
+
+    </div>
+    <p class="mt-4 text-center"><i class="bi bi-info-circle-fill me-2"></i>After 30min Images would be deleted and shared link will expire. Make sure you Download Your Encoded Image. </p>
+    <p class="mt-2 text-center"><i class="bi bi-info-circle-fill me-2"></i> Encrypted Images are not secure. Anyone can view encrypted image with the aid or the module used for this website.</p>
+
+</div>

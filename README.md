@@ -7,5 +7,3 @@ According to <a href="https://en.wikipedia.org/wiki/Steganography">wikipedia</a>
 Steganographer is a website that helps users to hide secret messages in pictures, It also enables user to view the messages hidden in Images.
 
 
-
-Design reference from remove.bg

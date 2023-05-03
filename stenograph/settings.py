@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'DEFAULT_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True))
+DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'stenograph.urls'
@@ -119,6 +121,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS =  [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+DISABLE_COLLECTSTATIC = 0
 
 # Media
 MEDIA_URL = '/media/'
